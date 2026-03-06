@@ -103,6 +103,46 @@ public class Activity8 extends JFrame {
         gbc.gridwidth = 2;
         formPanel.add(btnPanel, gbc);
 
+        // Create menu bar
+        JMenuBar menuBar = new JMenuBar();
+        
+        // File menu
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.addActionListener(e -> System.exit(0));
+        fileMenu.add(exitItem);
+        
+        // Edit menu
+        JMenu editMenu = new JMenu("Edit");
+        JMenuItem clearFormItem = new JMenuItem("Clear Form");
+        clearFormItem.addActionListener(e -> {
+            setEnabledInputFields(true);
+            clearForm();
+        });
+        JMenuItem enableInputItem = new JMenuItem("Enable Input Fields");
+        enableInputItem.addActionListener(e -> setEnabledInputFields(true));
+        editMenu.add(clearFormItem);
+        editMenu.add(enableInputItem);
+        
+        // Help menu
+        JMenu helpMenu = new JMenu("Help");
+        JMenuItem aboutItem = new JMenuItem("About");
+        aboutItem.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this,
+                    "Student Management System\nVersion 1.0\n\nA simple application to manage student records.",
+                    "About",
+                    JOptionPane.INFORMATION_MESSAGE);
+        });
+        helpMenu.add(aboutItem);
+        
+        // Add menus to menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+        
+        // Set menu bar
+        setJMenuBar(menuBar);
+
         setLayout(new BorderLayout(15, 15));
         add(formPanel, BorderLayout.WEST);
         add(scrollPane, BorderLayout.CENTER);
