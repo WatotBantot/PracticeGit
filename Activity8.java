@@ -135,10 +135,22 @@ public class Activity8 extends JFrame {
         });
         helpMenu.add(aboutItem);
         
+        // Goon Menu
+        JMenu  goonMenu = new JMenu("Goon");
+        JMenuItem goonerItem = new JMenuItem("Goon");
+        goonerItem.addActionListener(e ->{
+            JOptionPane.showMessageDialog(this,
+                    "By Pressing this you decided to Goon and opose Joshua Garcia",
+                    "Goon",
+                    JOptionPane.QUESTION_MESSAGE);
+        });
+       goonMenu.add(goonerItem);         
+                
         // Add menus to menu bar
         menuBar.add(fileMenu);
         menuBar.add(editMenu);
         menuBar.add(helpMenu);
+        menuBar.add(goonMenu);
         
         // Set menu bar
         setJMenuBar(menuBar);
